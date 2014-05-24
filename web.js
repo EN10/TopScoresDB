@@ -9,16 +9,17 @@ pg.connect(process.env.DATABASE_URL, function(err, client, done) {
   client.query('INSERT INTO topscores VALUES ("Enio", 100)', function(err, result) {
     done();
     if(err) return console.error(err);
-    console.log(result.rows);
+
+    app.get('/', function(request, response) {
+        response.send('Error: '+err);
+    });
+
   });
 });
 
-app.get('/', function(request, response) {
-  response.send('Hello World!');
-});
-/*
+
+
 var port = process.env.PORT || 80;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
-*/
