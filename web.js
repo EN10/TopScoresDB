@@ -16,8 +16,9 @@ pg.connect(process.env.DATABASE_URL, function(err, client, done) {
 app.get('/', function(request, response) {
   response.send('Hello World!');
 });
-
+/*
 var port = process.env.PORT || 80;
 app.listen(port, function() {
   console.log("Listening on " + port);
 });
+*/
