@@ -1,9 +1,7 @@
 {
-    "name": "pgdb",
+    "name": "pgstore",
     "dependencies": {
-        "pg": "latest",
-        "logfmt": "latest",
-        "express": "latest"
+        "pg": "latest"
     },
     "engines": {
         "node": "0.10.x",
