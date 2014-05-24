@@ -1,4 +1,8 @@
 // web.js
+var express = require("express");
+var app = express();
+app.use(express.logger());
+
 var pg = require('pg');
 
 pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -7,4 +11,13 @@ pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     if(err) return console.error(err);
     console.log(result.rows);
   });
+});
+
+app.get('/', function(request, response) {
+  response.send('Hello World!');
+});
+
+var port = process.env.PORT || 80;
+app.listen(port, function() {
+  console.log("Listening on " + port);
 });
