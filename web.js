@@ -16,4 +16,4 @@ app.get('/', function(req, res) {
     res.send('Error: ' + e);
 });
     
-app.listen(80);
+app.listen(process.env.PORT);
