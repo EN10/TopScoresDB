@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
         //var json  = JSON.stringify(result.rows);
         var ts = "";
         for (var i=0; i < result.rows.length; i++)
-        {   ts += result.rows[i].toString()+'\n';  }
+        {   ts += result.rows[i].score+'\n';  }
         res.end(ts);
       //res.end(JSON.stringify(result.rows,null,'\t'));
         });
