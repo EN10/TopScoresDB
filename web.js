@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
 /*      var ts ="";
         for (var i=0; result.rows.length; i++)
         {   ts += result.rows[i].toString();    }
-*/      res.end(JSON.stringify(result.rows[0],null,'\t'));
+*/      res.end(JSON.stringify(result.rows,null,'\t'));
         });
     });
 });
