@@ -12,7 +12,10 @@ app.get('/', function(req, res) {
             });
             client.query('SELECT * FROM topscores',function(err, result) {
             done();
-            res.end(result.rows.toString());
+            var ts ="";
+            for (var i=0; result.rows.length; i++)
+        {   ts += result.rows[0].toString() + "<br>";    }
+            res.end(ts);
             });
         });
         } catch(err)    {res.send(err);}
