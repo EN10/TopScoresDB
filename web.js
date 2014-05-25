@@ -11,10 +11,12 @@ app.get('/', function(req, res) {
                 [req.query.u,req.query.s],function(err, result) {});
         }        
         client.query('SELECT * FROM topscores',function(err, result) {
-/*      var ts ="";
+        var json  = JSON.stringify(result.rows);
+        var ts = "";
         for (var i=0; result.rows.length; i++)
-        {   ts += result.rows[i].toString();    }
-*/      res.end(JSON.stringify(result.rows,null,'\t'));
+        {   ts += json[i].name + " : " + json[i].score + '\n';  }
+        res.end(ts);
+        //res.end(JSON.stringify(result.rows,null,'\t'));
         });
     });
 });
