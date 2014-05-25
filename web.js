@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
         {   client.query('INSERT INTO topscores VALUES ($1 , $2)',
                 [req.query.u,req.query.s],function(err, result) {});
         }        
-        client.query('SELECT * FROM topscores ORDER BY score',function(err, result) {
+        client.query('SELECT * FROM topscores ORDER BY score DESC',function(err, result) {
         var ts = "";
         for (var i=0; i < result.rows.length; i++)
         {   ts += result.rows[i].name+' : '+result.rows[i].score+'\n';  }
