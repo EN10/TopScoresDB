@@ -1,4 +1,4 @@
-// https://github.com/brianc/node-postgres/wiki/Client
+// https://github.com/brianc/node-postgres/wiki/FAQ
 
 var express = require("express");
 var app = express();
@@ -9,7 +9,7 @@ app.get('/', function(req, res) {
         if (req.query.u !== undefined && req.query.s !== undefined)
         {   client.query('INSERT INTO topscores(name, score) VALUES ($1, $2)',
                 [req.query.u,req.query.s],function(err, result) {
-                    console.log(err);   });
+                     if (err!==null) console.log(err);   });
         }
         
         client.query('SELECT * FROM topscores ORDER BY score DESC',function(err, result) {
@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
         
         var link = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
         res.end(link + ts);
-        console.log(err);  });
+        if (err!==null) console.log(err);  });
     });
 });
 
