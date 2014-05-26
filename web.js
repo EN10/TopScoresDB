@@ -7,7 +7,7 @@ var pg = require('pg');
 app.get('/', function(req, res) {
     pg.connect(process.env.DATABASE_URL, function(err, client) {
         if (req.query.u !== undefined && req.query.s !== undefined)
-        {   client.query('INSERT INTO topscores VALUES ($1 , $2)',
+        {   client.query('INSERT INTO topscores(name, score) VALUES ($1, $2)',
                 [req.query.u,req.query.s],function(err, result) {
                     console.log(err);   });
         }
