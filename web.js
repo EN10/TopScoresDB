@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
         client.query('SELECT * FROM topscores ORDER BY score DESC',function(err, result) {
         var ts = "";
         for (var i=0; i < result.rows.length; i++)
-        {   ts += result.rows[i].name+' : '+result.rows[i].score+'\n';  }
+        {   ts += result.rows[i].name+' : '+result.rows[i].score+'<br>';  }
         
         var link = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
         res.end(link + ts);
