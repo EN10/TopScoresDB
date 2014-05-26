@@ -1,5 +1,5 @@
 // https://github.com/brianc/node-postgres/wiki/Client
-
+// add top link
 var express = require("express");
 var app = express();
 var pg = require('pg');
@@ -15,7 +15,8 @@ app.get('/', function(req, res) {
         var ts = "";
         for (var i=0; i < result.rows.length; i++)
         {   ts += result.rows[i].name+' : '+result.rows[i].score+'\n';  }
-        res.end(ts);
+        var link = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
+        res.end(link + ts);
             console.log(err);  });
     });
 });
