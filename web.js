@@ -17,8 +17,9 @@ app.get('/', function(req, res) {
         for (var i=0; i < result.rows.length; i++)
         {   ts += result.rows[i].name+' : '+result.rows[i].score+'<br>';  }
         
+        var css = '<link rel="stylesheet" type="text/css" href="styles.css">';
         var link = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
-        res.end(link + ts);
+        res.end(css+link+ts);
         if (err!==null) console.log(err);  });
     });
 });
