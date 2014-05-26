@@ -10,37 +10,17 @@ app.get('/', function(req, res) {
         {   client.query('INSERT INTO topscores VALUES ($1 , $2)',
                 [req.query.u,req.query.s],function(err, result) {
                     console.log(err);   });
-        }        
+        }
+        
         client.query('SELECT * FROM topscores ORDER BY score DESC',function(err, result) {
         var ts = "";
         for (var i=0; i < result.rows.length; i++)
         {   ts += result.rows[i].name+' : '+result.rows[i].score+'\n';  }
+        
         var link = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
         res.end(link + ts);
-            console.log(err);  });
+        console.log(err);  });
     });
 });
 
-app.listen(process.env.PORT);// https://github.com/brianc/node-postgres/wiki/Client
-// add top link
-var express = require("express");
-var app = express();
-var pg = require('pg');
-
-app.get('/', function(req, res) {
-    pg.connect(process.env.DATABASE_URL, function(err, client) {
-        if (req.query.u !== undefined && req.query.s !== undefined)
-        {   client.query('INSERT INTO topscores VALUES ($1 , $2)',
-                [req.query.u,req.query.s],function(err, result) {
-                    console.log(err);   });
-        }        
-        client.query('SELECT * FROM topscores ORDER BY score DESC',function(err, result) {
-        var ts = "";
-        for (var i=0; i < result.rows.length; i++)
-        {   ts += result.rows[i].name+' : '+result.rows[i].score+'\n';  }
-<<<<<<< HEAD
-        var link = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
-        res.end(link + ts);
-=======
-        res.end(ts);
->>>>>>> 6fe83e0f58b96481c508c2bb62eae6
+app.listen(process.env.PORT);
