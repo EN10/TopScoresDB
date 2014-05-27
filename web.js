@@ -17,10 +17,10 @@ app.get('/', function(req, res) {
         for (var i=0; i < result.rows.length; i++)
         {   ts += result.rows[i].name+' : '+result.rows[i].score+'<br>';  }
         
-        var css = '<head><link rel="stylesheet" type="text/css" href="files/styles.css"></head>';
+        var css = '<body style="font-family:arial;">';
         var link = '<a href="http://reaction.herokuapp.com/">Back to Reaction</a><p>';
         res.end(css+link+ts);
-        if (err!==null) console.log(err);  });
+            if (err!==null) console.log(err);  });
     });
 });
 
